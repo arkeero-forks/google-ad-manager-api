@@ -1,5 +1,5 @@
 {
-  "name": "google-ad-manager-api",
+  "name": "@arkeero-forks/google-ad-manager-api",
   "version": "1.0.3",
   "description": "",
   "scripts": {
@@ -28,12 +28,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/thewizarodofoz/google-ad-manager-api.git"
+    "url": "git@github.com:arkeero-forks/google-ad-manager-api.git"
   },
   "main": "./build/src/index.js",
   "types": "./build/src/index.d.ts",
   "devDependencies": {
     "@types/bluebird": "3.5.23",
+    "@arktypes/google-ad-manager-api": "*",
     "@types/node": "10.5.8",
     "@types/request": "^2.48.5",
     "@types/sax": "^1.2.1",
