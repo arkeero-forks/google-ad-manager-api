@@ -20,8 +20,12 @@ export class DFP {
 
     }
     private ServiceVersionSet: boolean = false;
+    public async getService(service: string, token?: string) {
+        
+        return await this._getService(this.options.apiVersion, service as any, token)
+    }
 
-    public async getService<D, E extends GamApiVersions, F>(service: string, version = this.options.apiVersion, token?: string): Promise<GetServoce[E]> {
+    private async _getService<E extends GamApiVersions, D extends GetServoce[E]["services"], F extends string>(version: E, service: D, token?: F): Promise<GetServoce[E]["client"]> {
 
         const { apiVersion } = this.options;
         const serviceUrl = `https://ads.google.com/apis/ads/publisher/${apiVersion}/${service}?wsdl`;
@@ -33,7 +37,7 @@ export class DFP {
             client.setSecurity(new BearerSecurity(token));
         };
 
-        if (token) {
+        if(token) {
             client.setToken(token);
         }
 
@@ -49,30 +53,30 @@ export class DFP {
                     return target[method];
                 }
             }
-        }) as GetServoce[E]; 
+        }) as GetServoce[E]["client"];
     }
 
     public static parse(res: any) {
-        return res.rval;
-    }
+    return res.rval;
+}
 
     private getSoapHeaders() {
-        const { apiVersion, networkCode } = this.options;
+    const { apiVersion, networkCode } = this.options;
 
-        return {
-            RequestHeader: {
-                attributes: {
-                    'soapenv:actor': "http://schemas.xmlsoap.org/soap/actor/next",
-                    'soapenv:mustUnderstand': 0,
-                    'xsi:type': "ns1:SoapRequestHeader",
-                    'xmlns:ns1': "https://www.google.com/apis/ads/publisher/" + apiVersion,
-                    'xmlns:xsi': "http://www.w3.org/2001/XMLSchema-instance",
-                    'xmlns:soapenv': "http://schemas.xmlsoap.org/soap/envelope/"
-                },
-                'ns1:networkCode': networkCode,
-                'ns1:applicationName': 'content-api'
-            }
-        };
-    }
+    return {
+        RequestHeader: {
+            attributes: {
+                'soapenv:actor': "http://schemas.xmlsoap.org/soap/actor/next",
+                'soapenv:mustUnderstand': 0,
+                'xsi:type': "ns1:SoapRequestHeader",
+                'xmlns:ns1': "https://www.google.com/apis/ads/publisher/" + apiVersion,
+                'xmlns:xsi': "http://www.w3.org/2001/XMLSchema-instance",
+                'xmlns:soapenv': "http://schemas.xmlsoap.org/soap/envelope/"
+            },
+            'ns1:networkCode': networkCode,
+            'ns1:applicationName': 'content-api'
+        }
+    };
+}
 
 }
