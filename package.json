@@ -12,7 +12,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "soap": "0.36.0"
+    "soap": "^1.0.0"
   },
   "files": [
     "README.md",
@@ -33,11 +33,11 @@
   "main": "./build/src/index.js",
   "types": "./build/src/index.d.ts",
   "devDependencies": {
-    "@types/bluebird": "3.5.23",
-    "@arktypes/google-ad-manager-api": "*",
-    "@types/node": "10.5.8",
+    "@arktypes/google-ad-manager-api": "^1.1.9",
+    "@types/bluebird": "^3.5.39",
+    "@types/node": "^20.7.0",
     "@types/request": "^2.48.5",
     "@types/sax": "^1.2.1",
-    "typescript": "3.0.1"
+    "typescript": "^5.2.2"
   }
 }

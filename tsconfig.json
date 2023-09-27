@@ -4,7 +4,7 @@
     "allowUnusedLabels": false,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["es2016"],
+    "lib": ["ES2020"],
     "module": "commonjs",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -12,13 +12,14 @@
     "pretty": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2016",
+    "target": "ES2020",
     "outDir": "build",
     "rootDir": "."
   },
   "include": [
     "src/*.ts",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "./node_modules/@arktypes/google-ad-manager-api"
   ],
   "exclude": [
     "node_modules"

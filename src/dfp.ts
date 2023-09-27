@@ -1,9 +1,10 @@
+import { GamApiVersions, GetServoce } from "@arktypes/google-ad-manager-api";
 import { BearerSecurity, Client, createClient } from 'soap';
 import { promiseFromCallback } from "./utils";
 
 export type DFPOptions = {
     networkCode: string;
-    apiVersion: string;
+    apiVersion: GamApiVersions;
 };
 
 export interface DFPClient extends Client {
@@ -16,10 +17,13 @@ export class DFP {
 
     constructor(options: DFPOptions) {
         this.options = options;
-    }
 
-    public async getService(service: string, token?: string): Promise<DFPClient> {
-        const {apiVersion} = this.options;
+    }
+    private ServiceVersionSet: boolean = false;
+
+    public async getService<D, E extends GamApiVersions, F>(service: string, version = this.options.apiVersion, token?: string): Promise<GetServoce[E]> {
+
+        const { apiVersion } = this.options;
         const serviceUrl = `https://ads.google.com/apis/ads/publisher/${apiVersion}/${service}?wsdl`;
         const client = await promiseFromCallback((cb) => createClient(serviceUrl, cb));
 
@@ -45,7 +49,7 @@ export class DFP {
                     return target[method];
                 }
             }
-        }) as DFPClient;
+        }) as GetServoce[E]; 
     }
 
     public static parse(res: any) {
@@ -53,7 +57,7 @@ export class DFP {
     }
 
     private getSoapHeaders() {
-        const {apiVersion, networkCode} = this.options;
+        const { apiVersion, networkCode } = this.options;
 
         return {
             RequestHeader: {
