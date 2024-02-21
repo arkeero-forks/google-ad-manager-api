@@ -7,6 +7,7 @@
     "lib": ["ES2020"],
     "module": "commonjs",
     "noEmitOnError": true,
+    "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "pretty": true,
@@ -18,8 +19,7 @@
   },
   "include": [
     "src/*.ts",
-    "src/**/*.ts",
-    "./node_modules/@arktypes/google-ad-manager-api"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

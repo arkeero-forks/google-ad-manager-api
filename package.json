@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "description": "",
   "scripts": {
-    "compile": "tsc -p .",
+    "compile": "tsc --noEmit ./src/index.ts",
     "prepare": "npm run compile"
   },
   "author": {
@@ -12,7 +12,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "soap": "^1.0.0"
+    "soap": "^1.0.0",
+    "ts-node": "^10.9.1"
   },
   "files": [
     "README.md",
@@ -30,14 +31,13 @@
     "type": "git",
     "url": "git@github.com:arkeero-forks/google-ad-manager-api.git"
   },
-  "main": "./build/src/index.js",
-  "types": "./build/src/index.d.ts",
+  "main": "./src/index.ts",
   "devDependencies": {
-    "@arktypes/google-ad-manager-api": "^1.1.9",
+    "@arktypes/google-ad-manager-api": "latest",
     "@types/bluebird": "^3.5.39",
-    "@types/node": "^20.7.0",
-    "@types/request": "^2.48.5",
-    "@types/sax": "^1.2.1",
+    "@types/node": "^20.7.1",
+    "@types/request": "^2.48.9",
+    "@types/sax": "^1.2.5",
     "typescript": "^5.2.2"
   }
 }

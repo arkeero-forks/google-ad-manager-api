@@ -1,1 +1,1 @@
-export {DFP, DFPOptions} from './dfp';
+export {DFP} from './dfp';
