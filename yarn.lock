@@ -2,17 +2,10 @@
 # yarn lockfile v1
 
 
-"@arkeero-forks/google-ad-manager-api@^1.1.1":
-  version "1.1.1"
-  resolved "https://npm.pkg.github.com/download/@arkeero-forks/google-ad-manager-api/1.1.1/12c11598728a94d8e87d57cff6b2004267ea27ff#12c11598728a94d8e87d57cff6b2004267ea27ff"
-  integrity sha512-jCTN9R22rUl7SmJwTWs+D2GG1tu6fZEM3IgINn8cl01c+TzlUqlXVq771TdEAq170eaKzlx9JqMJrFAf3KR8Qw==
-  dependencies:
-    soap "^1.0.0"
-
-"@arktypes/google-ad-manager-api@latest":
-  version "1.1.13"
-  resolved "https://npm.pkg.github.com/download/@arktypes/google-ad-manager-api/1.1.13/c5bc26189a1d0b4dd0f734b0503abe1d96fe5b98#c5bc26189a1d0b4dd0f734b0503abe1d96fe5b98"
-  integrity sha512-HswCxWV9Qh4R4rSSqeOq2FtoQ7lATVP2cMzadmk1s4HCk5lG16c00nUBUs6qnPQIt3dNOeghe2PBC0PCgjGo8Q==
+"@arktypes/google-ad-manager-api@^1.1.14":
+  version "1.1.14"
+  resolved "https://npm.pkg.github.com/download/@arktypes/google-ad-manager-api/1.1.14/ce126b9e0035243cf0953e82f7766f6f0baf6479#ce126b9e0035243cf0953e82f7766f6f0baf6479"
+  integrity sha512-3rWLuJHBlxQBSvmPNVf9iHzw2D7UcIl2SnzyYc7JFoXnA/Y5UIiONoTkckga80c8sPWWyoO4/xMhqbGkG8LGQw==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
