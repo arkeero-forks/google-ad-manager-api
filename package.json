@@ -6,7 +6,7 @@
   "exports": "./src/index.js",
   "scripts": {
     "compile": "tsc --noEmit ./src/index.ts",
-    "prepare": "npm run compile"
+    "prepare": "pnpm compile"
   },
   "author": {
     "name": "Oz Weiss",
@@ -19,7 +19,7 @@
   },
   "files": [
     "README.md",
-    "build/src",
+    "src",
     "package.json"
   ],
   "keywords": [
