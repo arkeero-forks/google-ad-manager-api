@@ -2,6 +2,8 @@
   "name": "@arkeero-forks/google-ad-manager-api",
   "version": "1.1.3",
   "description": "",
+  "type": "module",
+  "exports":"./src/index.js",
   "scripts": {
     "compile": "tsc --noEmit ./src/index.ts",
     "prepare": "npm run compile"
@@ -30,8 +32,7 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:arkeero-forks/google-ad-manager-api.git"
-  },
-  "main": "./src/index.ts",
+  },  
   "devDependencies": {
     "@arktypes/google-ad-manager-api": "latest",
     "@types/bluebird": "^3.5.39",

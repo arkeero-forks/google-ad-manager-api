@@ -1,1 +1,1 @@
-export {DFP} from './dfp';
+export {DFP} from './dfp.js';
