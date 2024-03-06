@@ -29,6 +29,10 @@
     "client",
     "client library"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "internal"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:arkeero-forks/google-ad-manager-api.git"
