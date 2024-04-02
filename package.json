@@ -3,7 +3,7 @@
   "version": "1.1.7",
   "description": "",
   "type": "module",
-  "exports": "./src/index.js",
+  "exports": "./src/index.ts",
   "author": {
     "name": "Oz Weiss",
     "email": "thewizarodofoz@gmail.com"
@@ -11,12 +11,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "soap": "^1.0.0",
-    "ts-node": "^10.9.2"
+    "tsx": "^4.7.1"
   },
   "files": [
     "README.md",
     "src",
-    "package.json"
+    "package.json",
+    "tsconfig.json"
   ],
   "keywords": [
     "google",
