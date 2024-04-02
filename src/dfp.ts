@@ -1,19 +1,19 @@
 import { GamApiVersions, Clients } from "@arktypes/google-ad-manager-api";
 import { BearerSecurity, Client, createClient } from 'soap';
-import { promiseFromCallback } from "./utils.js";
+import { promiseFromCallback } from "./utils.ts";
 
 
 export interface DFPClient extends Client {
     setToken(token: string): void;
 }
 
-export class DFP<A extends string, B extends GamApiVersions > {
+export class DFP<A extends string, B extends GamApiVersions> {
     declare private readonly networkCode;
     declare private readonly apiVersion;
     declare public readonly getService;
 
     constructor(networkCode: A, apiVersion: B) {
-       
+
         this.networkCode = networkCode as A;
         this.apiVersion = apiVersion as B;
         this.getService = async function <C extends keyof Clients[B] & string, D extends string>(service: C, token?: D): Promise<Clients[B][C]> {    //    const eto = await this.dudeService("latest", service as any,token);
@@ -31,7 +31,7 @@ export class DFP<A extends string, B extends GamApiVersions > {
                 client.setToken(token);
             }
 
-            const proxy= new Proxy(client, {
+            const proxy = new Proxy(client, {
                 get: function get(target, propertyKey) {
                     const method = propertyKey.toString();
                     if (target.hasOwnProperty(method) && !['setToken'].includes(method)) {
@@ -47,7 +47,7 @@ export class DFP<A extends string, B extends GamApiVersions > {
             return proxy
         };
     }
-    public static parse(res: any) { 
+    public static parse(res: any) {
         return res.rval;
     }
 

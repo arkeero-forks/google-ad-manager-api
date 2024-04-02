@@ -4,10 +4,6 @@
   "description": "",
   "type": "module",
   "exports": "./src/index.js",
-  "scripts": {
-    "compile": "tsc --noEmit ./src/index.ts",
-    "prepare": "pnpm compile"
-  },
   "author": {
     "name": "Oz Weiss",
     "email": "thewizarodofoz@gmail.com"
@@ -15,7 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "soap": "^1.0.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.2"
   },
   "files": [
     "README.md",
@@ -38,11 +34,11 @@
     "url": "git@github.com:arkeero-forks/google-ad-manager-api.git"
   },
   "devDependencies": {
-    "@arktypes/google-ad-manager-api": "latest",
-    "@types/bluebird": "^3.5.39",
-    "@types/node": "^20.7.1",
-    "@types/request": "^2.48.9",
-    "@types/sax": "^1.2.5",
-    "typescript": "^5.2.2"
+    "@arktypes/google-ad-manager-api": "^1.2.4",
+    "@types/bluebird": "^3.5.42",
+    "@types/node": "^20.12.2",
+    "@types/request": "^2.48.12",
+    "@types/sax": "^1.2.7",
+    "typescript": "^5.4.3"
   }
 }
