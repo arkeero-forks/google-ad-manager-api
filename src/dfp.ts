@@ -19,7 +19,7 @@ export class DFP<A extends string, B extends GamApiVersions> {
         this.getService = async function <C extends keyof Clients[B] & string, D extends string>(service: C, token?: D): Promise<Clients[B][C]> {    //    const eto = await this.dudeService("latest", service as any,token);
 
             const serviceUrl = `https://ads.google.com/apis/ads/publisher/${this.apiVersion}/${service}?wsdl`;
-            const client: Clients[B][C] = await promiseFromCallback((cb) => createClient(serviceUrl, cb));
+            const client = await promiseFromCallback((cb) => createClient(serviceUrl, cb));
 
             client.addSoapHeader(this.getSoapHeaders());
 

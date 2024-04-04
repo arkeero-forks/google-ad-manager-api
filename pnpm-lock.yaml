@@ -7,21 +7,21 @@ settings:
 dependencies:
   soap:
     specifier: ^1.0.0
-    version: 1.0.0(axios@0.27.2)
+    version: 1.0.0(axios@1.6.8)
   tsx:
-    specifier: ^4.7.1
-    version: 4.7.1
+    specifier: ^4.7.2
+    version: 4.7.2
 
 devDependencies:
   '@arktypes/google-ad-manager-api':
-    specifier: ^1.2.4
-    version: 1.2.4(axios@0.27.2)
+    specifier: ^1.3.1
+    version: 1.3.1(axios@1.6.8)
   '@types/bluebird':
     specifier: ^3.5.42
     version: 3.5.42
   '@types/node':
-    specifier: ^20.12.2
-    version: 20.12.2
+    specifier: ^20.12.4
+    version: 20.12.4
   '@types/request':
     specifier: ^2.48.12
     version: 2.48.12
@@ -34,11 +34,11 @@ devDependencies:
 
 packages:
 
-  /@arktypes/google-ad-manager-api@1.2.4(axios@0.27.2):
-    resolution: {integrity: sha512-HXxBqhIPyktXpNRh3UgPc8H4aebUkBvrxpTDWzsju+zoZz1EDCWG6TgoWQb6l09u2VsRojrstMxl4jkBKRszfg==, tarball: https://npm.pkg.github.com/download/@arktypes/google-ad-manager-api/1.2.4/abae675218955efcab1715ea6f0987c6e5087e51}
+  /@arktypes/google-ad-manager-api@1.3.1(axios@1.6.8):
+    resolution: {integrity: sha512-gYPIO5Fic+3aYj1aSJqrqunrQd1lOSNWGYEdw22yJ3buyffwjY8pSdbJHCphmgGOiJ6/0M2ho7YO8P8uXjCSNg==, tarball: https://npm.pkg.github.com/download/@arktypes/google-ad-manager-api/1.3.1/293a9cb1cf6ed2fea70b470745b3f2a52e2c3763}
     engines: {node: '>=18'}
     dependencies:
-      soap: 1.0.0(axios@0.27.2)
+      soap: 1.0.0(axios@1.6.8)
     transitivePeerDependencies:
       - axios
       - supports-color
@@ -259,8 +259,8 @@ packages:
     resolution: {integrity: sha512-hWtVTC2q7hc7xZ/RLbxapMvDMgUnDvKvMOpKal4DrMyfGBUfB1oKaZlIRr6mJL+If3bAP6sV/QneGzF6tJjZDg==}
     dev: true
 
-  /@types/node@20.12.2:
-    resolution: {integrity: sha512-zQ0NYO87hyN6Xrclcqp7f8ZbXNbRfoGWNcMvHTPQp9UUrwI0mI7XBz+cu7/W6/VClYo2g63B0cjull/srU7LgQ==}
+  /@types/node@20.12.4:
+    resolution: {integrity: sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -269,7 +269,7 @@ packages:
     resolution: {integrity: sha512-G3sY+NpsA9jnwm0ixhAFQSJ3Q9JkpLZpJbI3GMv0mIAT0y3mRabYeINzal5WOChIiaTEGQYlHOKgkaM9EisWHw==}
     dependencies:
       '@types/caseless': 0.12.5
-      '@types/node': 20.12.2
+      '@types/node': 20.12.4
       '@types/tough-cookie': 4.0.5
       form-data: 2.5.1
     dev: true
@@ -277,7 +277,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 20.12.2
+      '@types/node': 20.12.4
     dev: true
 
   /@types/tough-cookie@4.0.5:
@@ -301,14 +301,6 @@ packages:
       des.js: 1.1.0
       dev-null: 0.1.1
       js-md4: 0.3.2
-    transitivePeerDependencies:
-      - debug
-
-  /axios@0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
-    dependencies:
-      follow-redirects: 1.15.6(debug@4.3.4)
-      form-data: 4.0.0
     transitivePeerDependencies:
       - debug
 
@@ -485,13 +477,13 @@ packages:
   /sax@1.3.0:
     resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
 
-  /soap@1.0.0(axios@0.27.2):
+  /soap@1.0.0(axios@1.6.8):
     resolution: {integrity: sha512-GB5GuKjWFtAPP0IaM4tKUvdF4dFlaz4iujLPg0DsCy9qAAgm5/g+SI+P9e6igWWwXZ74CC5Uo0VEEz8lte0CJA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       axios: ^0.27.2
     dependencies:
-      axios: 0.27.2
+      axios: 1.6.8(debug@4.3.4)
       axios-ntlm: 1.4.2(debug@4.3.4)
       debug: 4.3.4
       formidable: 3.5.1
@@ -509,8 +501,8 @@ packages:
     resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
     engines: {node: '>=4'}
 
-  /tsx@4.7.1:
-    resolution: {integrity: sha512-8d6VuibXHtlN5E3zFkgY8u4DX7Y3Z27zvvPKVmLon/D4AjuKzarkUBTLDBgj9iTQ0hg5xM7c/mYiRVM+HETf0g==}
+  /tsx@4.7.2:
+    resolution: {integrity: sha512-BCNd4kz6fz12fyrgCTEdZHGJ9fWTGeUzXmQysh0RVocDY3h4frk05ZNCXSy4kIenF7y/QnrdiVpTsyNRn6vlAw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
