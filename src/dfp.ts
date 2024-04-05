@@ -1,4 +1,4 @@
-import { GamApiVersions, Clients } from "@arktypes/google-ad-manager-api";
+import { GamApiVersions, Clients, ServiceActionParameters, ServiceActionReturn } from "@arktypes/google-ad-manager-api";
 import { BearerSecurity, Client, createClient } from 'soap';
 import { promiseFromCallback } from "./utils.ts";
 
@@ -16,10 +16,10 @@ export class DFP<A extends string, B extends GamApiVersions> {
 
         this.networkCode = networkCode as A;
         this.apiVersion = apiVersion as B;
-        this.getService = async function <C extends keyof Clients[B] & string, D extends string>(service: C, token?: D): Promise<Clients[B][C]> {    //    const eto = await this.dudeService("latest", service as any,token);
+        this.getService = async function <C extends keyof Clients[B], D extends keyof Clients[B][C]>(service: C, token?: string): Promise<Clients[B][C]> {    //    const eto = await this.dudeService("latest", service as any,token);
 
-            const serviceUrl = `https://ads.google.com/apis/ads/publisher/${this.apiVersion}/${service}?wsdl`;
-            const client = await promiseFromCallback((cb) => createClient(serviceUrl, cb));
+            const serviceUrl = `https://ads.google.com/apis/ads/publisher/${this.apiVersion}/${service.toString()}?wsdl`;
+            const client: DFPClient & Clients[B][C] & { hasOwnProperty: (token: string) => boolean } = await promiseFromCallback((cb) => createClient(serviceUrl, cb));
 
             client.addSoapHeader(this.getSoapHeaders());
 
@@ -33,22 +33,25 @@ export class DFP<A extends string, B extends GamApiVersions> {
 
             const proxy = new Proxy(client, {
                 get: function get(target, propertyKey) {
-                    const method = propertyKey.toString();
-                    if (target.hasOwnProperty(method) && !['setToken'].includes(method)) {
-                        return async function run(dto: any = {}) {
-                            const res = await promiseFromCallback((cb) => client[method](dto, cb));
-                            return DFP.parse(res);
-                        };
-                    } else {
-                        return target[method];
+                    const method = propertyKey.toString() as D;
+                    //existe el metodo en el cliente
+                    if (target.hasOwnProperty(method)) {
+                        const targetMethode = target[method] as Clients[B][C][D];
+                        if (method === "setToken")
+                            return targetMethode
+                        return async (params: ServiceActionParameters<B, C, D>) => {
+                            //@ts-ignore
+                            const res = await promiseFromCallback((callback) => targetMethode(params, callback));
+                            return res.rval as ServiceActionReturn<B, C, D>
+                        }
+
+
                     }
+
                 }
-            }) as Clients[B][C];
+            });
             return proxy
         };
-    }
-    public static parse(res: any) {
-        return res.rval;
     }
 
     private getSoapHeaders() {
