@@ -1,6 +1,6 @@
 import { GamApiVersions, Clients, ServiceActionParameters, ServiceActionReturn } from "@arktypes/google-ad-manager-api";
 import { BearerSecurity, Client, createClient } from 'soap';
-import { promiseFromCallback } from "./utils.ts";
+import { promiseFromCallback } from "./utils.js";
 
 
 export interface DFPClient extends Client {
