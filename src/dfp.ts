@@ -35,7 +35,7 @@ export class DFP<A extends string, B extends GamApiVersions> {
                 get: function get(target, propertyKey) {
                     const method = propertyKey.toString() as D;
                     //existe el metodo en el cliente
-                    if (target.hasOwnProperty(method)) {
+                    if (target.hasOwnProperty(method as string)) {
                         const targetMethode = target[method] as Clients[B][C][D];
                         if (method === "setToken")
                             return targetMethode
